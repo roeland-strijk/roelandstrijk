@@ -1,0 +1,42 @@
+from django.shortcuts import render
+from .models import Form133, Form133Next
+
+
+def radio_log(request):
+    if request.method=="POST":
+        post=Form133()
+        post.incident_nr=request.POST['incident_nr']
+        post.incident_naam=request.POST['incident_naam']
+        post.datum=request.POST['datum']
+        post.locatie=request.POST['locatie']
+        post.save()
+
+        return render(request, 'radio_register.html')
+    else:
+        return render(request, 'radio_register.html')
+
+    
+
+def radio_log_combined(request):
+    if request.method == "POST":
+        post = Form133Next()
+        post.incident_nr = request.POST['incident_nr']
+        post.incident_naam= request.POST['incident_naam']
+        post.locatie=request.POST['locatie']
+        post.datum=request.POST['datum']
+        post.tijd = request.POST['tijd']
+        post.team = request.POST['team']
+        post.bericht = request.POST['bericht']
+        post.save()
+
+    logs = Form133Next.objects.all()
+    incident = Form133.objects.all()
+    laatste = Form133.objects.last()
+    context = {
+
+        'form133next': logs,
+        'form133': incident,
+        'laatste': laatste,
+    }
+
+    return render(request, 'radio_log_combined.html', context)

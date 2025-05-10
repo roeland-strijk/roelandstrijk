@@ -1,0 +1,383 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Roeland Strijk</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: ZenBlog
+  * Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
+  * Updated: Aug 08 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+
+<body class="index-page">
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Roeland Strijk</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+       menu hier
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://x.com/RoelandStrijk" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/roeland.strijk.3/" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/roeland-strijk-60bb3847/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Slider Section -->
+    <section id="slider" class="slider section dark-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "centeredSlides": true,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              }
+            }
+          </script>
+
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide" style="background-image: url('{% static 'assets/img/post-slide-5.jpg' %}');">
+              <div class="content">
+                <h2><a href="#">Route in de buurt van Valthe</a></h2>
+                <p>Valthe is een dorp in de Nederlandse provincie Drenthe, gemeente Borger-Odoorn, gelegen op de Hondsrug. De naam Valthe wordt voor het eerst in geschreven vorm in 1217 genoemd.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide" style="background-image: url('{% static 'assets/img/post-slide-6.jpg' %}');">
+              <div class="content">
+                <h2><a href="#">Oosterbos Nieuw Dordrecht</a></h2>
+                <p>Het Oosterbos is aangeplant in de zeventiger jaren van de 20e eeuw door Staatsbosbeheer in het kader van de herinrichting van de Veenkoloniën. Het bos is grotendeels aangeplant op niet afgegraven hoogveen.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide" style="background-image: url('{% static 'assets/img/post-slide-7.jpg' %}');">
+              <div class="content">
+                <h2><a href="#">Ijshaar</a>
+                </h2>
+                <p>IJshaar, ook wel haarijs, sneeuwbaard of baardijs is een zeldzaam natuurlijk verschijnsel waarbij een haarachtige,
+                wollige ijsstructuur ontstaat op dood en nat kernhout van loofbomen, maar niet op de bast. Het is naar buiten geperst
+                water dat bevriest tijdens vorst.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide" style="background-image: url('{% static 'assets/img/post-slide-8.jpg' %}');">
+              <div class="content">
+                <h2><a href="#">Vorst</a></h2>
+                <p>Een druppel is een kleine hoeveelheid vloeistof, zodanig dat de vloeistof nog net een bolvorm aanneemt als die vloeistof
+                volledig is omhuld door een vrij oppervlak. Een druppel water kan van ca. 10 tot ca. 50 microliter groot zijn
+                (afhankelijk van bijvoorbeeld de kwaliteit van het water, de temperatuur of hoe de druppel ontstaat).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Slider Section -->
+
+
+    <!-- Lifestyle Category Section -->
+    <section id="lifestyle-category" class="lifestyle-category section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <div class="section-title-container d-flex align-items-center justify-content-between">
+          <h2>Wandelingen</h2>
+          <p><a href="#">Alle Wandelingen</a></p>
+        </div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <div class="post-list lg">
+              <a href="#"><img src="{% static 'assets/img/post-landscape-18.jpg' %}" alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date">Wandeling 25 km</span> <span class="mx-1">•</span>
+                <span>5-4-2025</span></div>
+              <h2><a href="#">Valthe</a></h2>
+
+              <div class="d-flex align-items-center author">
+                <div class="photo"><img src="{% static 'assets/img/person-17.jpg' %}" alt="" class="img-fluid"></div>
+                <div class="name">
+                  <h3 class="m-0 p-0">Roeland</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="post-list border-bottom">
+              <div class="post-meta"><span class="date">Wandeling 20km</span> <span class="mx-1">•</span>
+                <span>19-3-2025</span></div>
+              <h2 class="mb-2"><a href="#">Wandeling Nw Dordrecht</a>
+              </h2>
+              <span class="author mb-3 d-block">Roeland</span>
+            </div>
+
+            <div class="post-list">
+              <div class="post-meta"><span class="date">Wandeling</span> <span class="mx-1">•</span>
+                <span>Datum</span></div>
+              <h2 class="mb-2"><a href="#">Wandeling tekst</a></h2>
+              <span class="author mb-3 d-block">Roeland</span>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8">
+            <div class="row g-5">
+              <div class="col-lg-4 border-start custom-border">
+                <div class="post-list">
+                  <a href="#"><img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Wandeling </span> <span class="mx-1">•</span>
+                    <span>7-3-2025</span></div>
+                  <h2><a href="#">Hunnebed D35</a></h2>
+                </div>
+                <div class="post-list">
+                  <a href="#"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Wandeling</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2><a href="#">Tekst</a></h2>
+                </div>
+                <div class="post-list">
+                  <a href="blog-details.html"><img src="assets/img/post-landscape-4.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Wandeling</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2><a href="blog-details.html">Tekst</a></h2>
+                </div>
+              </div>
+              <div class="col-lg-4 border-start custom-border">
+                <div class="post-list">
+                  <a href="blog-details.html"><img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Wandeling</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2><a href="blog-details.html">Tekst</a></h2>
+                </div>
+                <div class="post-list">
+                  <a href="blog-details.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Wandeling</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2><a href="blog-details.html">Tekst</a></h2>
+                </div>
+                <div class="post-list">
+                  <a href="blog-details.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Wandeling</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2><a href="blog-details.html">Tekst</a></h2>
+                </div>
+              </div>
+              <div class="col-lg-4">
+
+                <div class="post-list border-bottom">
+                  <div class="post-meta"><span class="date">Wandeling</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2 class="mb-2"><a href="blog-details.html">Tekst</a></h2>
+                  <span class="author mb-3 d-block">Roeland</span>
+                </div>
+
+                <div class="post-list border-bottom">
+                  <div class="post-meta"><span class="date">Wandelen</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2 class="mb-2"><a href="blog-details.html">Tekst</a></h2>
+                  <span class="author mb-3 d-block">Roeland</span>
+                </div>
+
+                <div class="post-list border-bottom">
+                  <div class="post-meta"><span class="date">Wandelen</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2 class="mb-2"><a href="blog-details.html">Tekst</a></h2>
+                  <span class="author mb-3 d-block">Roeland</span>
+                </div>
+
+                <div class="post-list border-bottom">
+                  <div class="post-meta"><span class="date">Wandelen</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2 class="mb-2"><a href="blog-details.html">Tekst</a>
+                  </h2>
+                  <span class="author mb-3 d-block">Roeland</span>
+                </div>
+
+                <div class="post-list border-bottom">
+                  <div class="post-meta"><span class="date">Wandelen</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2 class="mb-2"><a href="blog-details.html">Tekst</a></h2>
+                  <span class="author mb-3 d-block">Roeland</span>
+                </div>
+
+                <div class="post-list border-bottom">
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">•</span>
+                    <span>Datum</span></div>
+                  <h2 class="mb-2"><a href="blog-details.html">Tekst</a>
+                  </h2>
+                  <span class="author mb-3 d-block">Roeland</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Lifestyle Category Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Roeland Strijk</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p><strong>Email:</strong> <span>info@roelandstrijk.nl</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+        <a href="https://x.com/RoelandStrijk" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/roeland.strijk.3/" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/roeland-strijk-60bb3847/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Links</h4>
+          <ul>
+        menu hier
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Andere Links</h4>
+          <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>-</h4>
+          <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>-</h4>
+          <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Roeland Strijk</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top"
+    class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  
+</body>
+
+</html>

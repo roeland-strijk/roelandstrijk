@@ -1,0 +1,358 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Roeland Strijk</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Roeland Strijk
+  * Updated: Aug 08 2024 with Bootstrap v5.3.3
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!--<img src="{% static 'assets/img/logo.png' %}" alt="">-->
+        <h1 class="sitename">Roeland Strijk</h1>
+      </a>
+
+        <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <!--<li><a href="/about">About</a></li>-->
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://x.com/RoelandStrijk" class="twitter" target="_blank"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/roeland.strijk.3/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/roeland-strijk-60bb3847/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <!--<li class="current">Single Post</li>-->
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-8">
+
+          <!-- Blog Details Section -->
+          <section id="blog-details" class="blog-details section">
+            <div class="container">
+
+<!-- begin single post -->
+              <article class="article">
+
+                <div class="post-img">
+                  <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                </div>
+
+                <h2 class="title">{{ post.title }}</h2>
+
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">Roeland</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="2020-01-01">{{ post.date }}</time></a></li>
+                  </ul>
+                </div>
+                <!-- End meta top -->
+
+                <div class="content">
+                  <p>
+            {{ post.body }}</p>
+
+                  <blockquote>
+                    <p>
+                  {{ post.tekst }}
+                    </p>
+                  </blockquote>
+
+                  <p>
+                    {{ post.teksteind }}</p>
+
+                  <img src="{% static 'assets/img/blog' %}{{ post.banner.url }}" class="img-fluid" alt="">
+                  <!--<img src="{{ post.banner.url }}" class="img-fluid" alt="">-->
+            
+
+                </div>
+                <!-- End post content -->
+
+
+              </article>
+<!-- einde singele post -->
+            </div>
+          </section><!-- /Blog Details Section -->
+
+          <!-- Blog Comments Section 
+         
+         
+          <section id="blog-comments" class="blog-comments section">
+
+            <div class="container">
+
+              <h4 class="comments-count">Comments</h4>
+                <div id="comment-1" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="{% static 'assets/img/blog/comments-1.jpg' %}" alt=""></div>
+                  <div>
+                    <h5><a href="">Jan Klaasen</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">Datum</time>
+                    <p>
+                    Reactie
+                    </p>
+                  </div>
+                </div>
+              </div>
+              -->
+              
+              <!-- End comment #1 -->
+
+<!--
+            </div>
+
+          </section>/Blog Comments Section -->
+
+          <!-- Comment Form Section 
+          <section id="comment-form" class="comment-form section">
+            <div class="container">
+
+              <form action="">
+
+                <h4>Post Comment</h4>
+                <p>Your email address will not be published. Required fields are marked * </p>
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col form-group">
+                    <input name="website" type="text" class="form-control" placeholder="Your Website">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col form-group">
+                    <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Post Comment</button>
+                </div>
+
+              </form>
+
+            </div>
+          </section>
+           /Comment Form Section -->
+
+        </div>
+
+        <div class="col-lg-4 sidebar">
+
+          <div class="widgets-container">
+
+            <!-- Blog Author Widget -->
+            <div class="blog-author-widget widget-item">
+
+              <div class="d-flex flex-column align-items-center">
+                <div class="d-flex align-items-center w-100">
+                  <!--<img src="assets/img/blog/blog-author.jpg" class="rounded-circle flex-shrink-0" alt="">-->
+                  <div>
+                    <h4>Roeland Strijk</h4>
+                    <div class="social-links">
+                    <a href="https://x.com/RoelandStrijk" class="twitter" target="_blank"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/roeland.strijk.3/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/roeland-strijk-60bb3847/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <p>
+                  Wandelen is goed voor je, maar waarom?</p>
+
+              </div>
+
+            </div><!--/Blog Author Widget -->
+
+            <!-- Search Widget -->
+            <div class="search-widget widget-item">
+
+              <h3 class="widget-title">Zoeken</h3>
+              <form action="">
+                <input type="text">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+              </form>
+
+            </div><!--/Search Widget -->
+
+            <!-- Recent Posts Widget -->
+            <div class="recent-posts-widget widget-item">
+
+              <h3 class="widget-title">Recente wandelingen</h3>
+
+{% block content %}
+{% for post in posts %}
+              <div class="post-item">
+                <img src="{% static 'assets/img/blog' %}{{ post.banner.url }}" alt="" class="flex-shrink-0">
+                <div>
+                  <h4><a href="{{post.id}}">{{ post.title }}</a></h4>
+                  <time datetime="2020-01-01">{{ post.date }}</time>
+                </div>
+              </div><!-- End recent post item-->
+  {% endfor %}
+  {% endblock %}
+
+
+
+<!--
+              <div class="post-item">
+                <img src="{% static 'assets/img/blog/blog-recent-2.jpg' %}" alt="" class="flex-shrink-0">
+                <div>
+                  <h4><a href="#">wandeling 2</a></h4>
+                  <time datetime="2020-01-01">Datum</time>
+                </div>
+              </div>
+              -->
+              <!-- End recent post item-->
+
+        <!--    </div>-->
+            
+            <!--/Recent Posts Widget -->
+            
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+ <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="https://roelandstrijk.nl" class="logo d-flex align-items-center">
+            <span class="sitename">Roeland Strijk</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p><strong>Email:</strong> <span>info@roelandstrijk.nl</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+  <a href="https://x.com/RoelandStrijk" class="twitter" target="_blank"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/roeland.strijk.3/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/roeland-strijk-60bb3847/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+          <!-- <li><a href="#">About us</a></li>-->
+          </ul>
+        </div>
+<!--
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>-</h4>
+          <ul>
+            <li><a href="#">-</a></li>
+          
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>-</h4>
+          <ul>
+            <li><a href="#">-</a></li>
+            
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>-</h4>
+          <ul>
+            <li><a href="#">-</a></li>
+           
+          </ul>
+        </div>
+-->
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Roeland Strijk</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!--Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

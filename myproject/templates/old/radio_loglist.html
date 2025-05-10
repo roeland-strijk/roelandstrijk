@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration form</title>
+  </head>
+  <body>
+    {% block content %}
+   
+    <table>
+      <tr>
+
+        <td>Tijd</td>
+        <td>Incident Nr</td>
+        <td>Team</td>
+        <td>Bericht</td>
+      </tr>
+    
+        {% for post in form133next %}
+        <tr>
+        <td>{{ post.tijd }}</td>
+        <td>{{ post.incident_nr }}</td>
+        <td>{{ post.team }}</td>
+        <td>{{ post.bericht }}</td>
+      </tr>
+{% endfor %}
+    </table>
+{% endblock %}
+</body>
+</html>
