@@ -23,7 +23,7 @@
         <div align='left'> <h2>Radio Log</h2></div>
         
     
-        <table>
+        <table >
             <tr>
                 <td>Incident Naam:</td>
                 <td> {{ laatste.incident_naam }}</td>
@@ -40,18 +40,29 @@
             <td>{{laatste.locatie}}</td>
             </tr>
             <tr><td></td></tr>
-            <tr>
-                <td>Tijd:</td> <td> Team:</td><td>Bericht:</td>
-                
-            </tr>
-
-            <tr>
-                <td><input type="text" name="tijd" id="tijdveld" readonly></td>
-                <td><input type="text" name="team" required></td>
-                <td><input type="text" name="bericht" size="100%" required></td>
-                
-            </tr>
         </table>
+
+ <table style="width:100%" >
+
+  <tr>
+    <td>Tijd:</td>
+    <td align="left">Team:</td>
+    
+  </tr>
+    <tr>
+    <td><input type="text" name="tijd" id="tijdveld" readonly></td>
+    <td><input type="text" name="team" required></td>
+    
+  </tr>
+    <tr>
+    <td colspan="2">Bericht:</td>
+   
+  </tr>
+      <tr>
+    <td colspan="2"><input type="text" name="bericht"  style="width:95%" required></td>
+   
+  </tr>
+</table>
         <input type="hidden" name="datum" value="{% now "Ymd" %}">
         <input type="hidden" name="incident_nr" value ="{{ laatste.incident_nr}}" required >
         <input type="hidden" name="incident_naam" value ="{{ laatste.incident_naam}}" required >

@@ -22,4 +22,4 @@ class Form133Next(models.Model):
     team=models.CharField()
     bericht=models.CharField(max_length=100)
     def __str__(self):
-        return f"{self.incident_nr} - {self.tijd} - {self.team}"
+        return f"{self.incident_nr} - {self.tijd} - {self.team} - {self.bericht}"

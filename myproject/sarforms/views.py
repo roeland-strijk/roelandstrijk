@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Form133, Form133Next
 from django.db.models import Max
+from django.shortcuts import render, redirect
 
 
 def radio_log(request):
@@ -10,8 +11,9 @@ def radio_log(request):
         post.incident_naam=request.POST['incident_naam']
         post.datum=request.POST['datum']
         post.locatie=request.POST['locatie']
-        post.save()
-
+        post.save()  
+        return redirect('logs')  # Gebruik naam van URL patroon
+      
 
     laatste = Form133.objects.last()
     volgend_incident_nr = (Form133.objects.aggregate(Max('incident_nr'))['incident_nr__max'] or 0) + 1
@@ -21,10 +23,6 @@ def radio_log(request):
         'volgend_incident_nr': volgend_incident_nr,
     }
     return render(request, 'radio_register.html', context)
-
-     # bij GET ook de laatste meegeven
-#laatste = Form133.objects.last()
-#return render(request, 'radio_register.html', {'laatste': laatste})
 
     
 
@@ -43,11 +41,8 @@ def radio_log_combined(request):
 
 
     max_incident_nr = Form133.objects.aggregate(Max('incident_nr'))['incident_nr__max']
-    logs = Form133Next.objects.filter(incident_nr=max_incident_nr)
+    logs = Form133Next.objects.filter(incident_nr=max_incident_nr).order_by('-tijd')
 
-   
-    #logs = Form133Next.objects.all().order_by('-incident_nr')
-    #logs = Form133Next.objects.all()
     incident = Form133.objects.all()
     laatste = Form133.objects.last()
     context = {
