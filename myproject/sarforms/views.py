@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Form133, Form133Next
+from django.db.models import Max
 
 
 def radio_log(request):
@@ -29,7 +30,14 @@ def radio_log_combined(request):
         post.bericht = request.POST['bericht']
         post.save()
 
-    logs = Form133Next.objects.all()
+
+
+    max_incident_nr = Form133.objects.aggregate(Max('incident_nr'))['incident_nr__max']
+    logs = Form133Next.objects.filter(incident_nr=max_incident_nr)
+
+   
+    #logs = Form133Next.objects.all().order_by('-incident_nr')
+    #logs = Form133Next.objects.all()
     incident = Form133.objects.all()
     laatste = Form133.objects.last()
     context = {
