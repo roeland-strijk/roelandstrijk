@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Form133(models.Model):
-    incident_nr=models.CharField(max_length=5, null=True, blank=True)
+    incident_nr = models.IntegerField(null=True, blank=True)
+    #incident_nr=models.CharField(max_length=5, null=True, blank=True)
     incident_naam=models.CharField(max_length=30)
     datum=models.DateField()
     locatie=models.CharField(max_length=100)

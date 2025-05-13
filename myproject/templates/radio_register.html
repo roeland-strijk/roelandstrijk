@@ -91,14 +91,15 @@
       <div class="container section-title" data-aos="fade-up">
       <form action="" method="POST">
         {% csrf_token %}
-        <div class="title">Maak een nieuw logboek aan.
+       
+        <div class="title">Maak een nieuw logboek aan. Van Laatste incident:{{ laatste.incident_nr }} en volgende:{{ volgend_incident_nr }}
           <i class="fas fa-pencil-alt"></i> 
         </div>
         <div class="info">
           <input type="text" name="incident_naam" placeholder="Incident naam">
           <input type="text" name="datum" placeholder="Datum(YYYY-MM-DD)">
-          <input type="text" name="incident_nr" value="" placeholder="Incident nummer">
           <input type="text" name="locatie" placeholder="Locatie">
+          <input type="hidden" name="incident_nr" value="{{ volgend_incident_nr }}">
         </div>
         <button type="submit" href="/">Sla op</button>
       </form>

@@ -20,7 +20,7 @@
 <body>
     <form method="POST">
         {% csrf_token %}
-        <div align='left'> <h1>RADIO LOG</h1></div>
+        <div align='left'> <h2>Radio Log</h2></div>
         
     
         <table>
@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td>Nr:</td>
-                <td>{{ laatste.incident_nr}}</td>
+                <td>{{ laatste.incident_nr }}</td>
             </tr>
             <tr>
                 <td>Datum:</td>
@@ -60,8 +60,7 @@
         <br>
         <button type="submit">Verstuur</button>
     </form>
-  
-    <h1>Welcome</h1>
+
     <h2>Logboek</h2>
     <table border="1" width="100%">
         <tr align="left">

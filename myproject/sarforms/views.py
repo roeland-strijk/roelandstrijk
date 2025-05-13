@@ -12,9 +12,19 @@ def radio_log(request):
         post.locatie=request.POST['locatie']
         post.save()
 
-        return render(request, 'radio_register.html')
-    else:
-        return render(request, 'radio_register.html')
+
+    laatste = Form133.objects.last()
+    volgend_incident_nr = (Form133.objects.aggregate(Max('incident_nr'))['incident_nr__max'] or 0) + 1
+
+    context = {
+        'laatste': laatste,
+        'volgend_incident_nr': volgend_incident_nr,
+    }
+    return render(request, 'radio_register.html', context)
+
+     # bij GET ook de laatste meegeven
+#laatste = Form133.objects.last()
+#return render(request, 'radio_register.html', {'laatste': laatste})
 
     
 
