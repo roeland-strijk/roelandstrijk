@@ -41,7 +41,8 @@ def radio_log_combined(request):
 
 
     max_incident_nr = Form133.objects.aggregate(Max('incident_nr'))['incident_nr__max']
-    logs = Form133Next.objects.filter(incident_nr=max_incident_nr).order_by('-datum, -tijd' )
+    logs = Form133Next.objects.filter(incident_nr=max_incident_nr).order_by('-datum', '-tijd')
+
 
     incident = Form133.objects.all()
     laatste = Form133.objects.last()
