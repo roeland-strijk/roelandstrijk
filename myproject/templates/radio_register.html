@@ -40,7 +40,7 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Roeland Strijk</h1>
@@ -71,7 +71,7 @@
     
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li class="current">Radio Log</li>
           </ol>
         </nav>
@@ -92,12 +92,12 @@
       <form action="" method="POST">
         {% csrf_token %}
        
-        <div class="title">Maak een nieuw logboek aan. Laatste incident:{{ laatste.incident_nr }} en volgende:{{ volgend_incident_nr }}
+        <div class="title">Maak een nieuw logboek aan met de datum van {% now "d-m-Y" %}. Laatste incident:{{ laatste.incident_nr }} en volgende:{{ volgend_incident_nr }}
           <i class="fas fa-pencil-alt"></i> 
         </div>
         <div class="info">
           <input type="text" name="incident_naam" placeholder="Incident naam">
-          <input type="text" name="datum" placeholder="Datum(YYYY-MM-DD)">
+          <input type="hidden" name="datum" value="{% now "Ymd" %}">
           <input type="text" name="locatie" placeholder="Locatie">
           <input type="hidden" name="incident_nr" value="{{ volgend_incident_nr }}">
         </div>
