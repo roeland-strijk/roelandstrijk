@@ -14,7 +14,7 @@ class Form133(models.Model):
 
 
 class Form133Next(models.Model):
-    incident_nr=models.CharField(max_length=5)
+    incident_nr=models.IntegerField(null=True, blank=True)
     incident_naam=models.CharField(max_length=30, null=True, blank=True)
     locatie=models.CharField(max_length=100, null=True, blank=True)
     datum=models.DateField(null=True, blank=True)

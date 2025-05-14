@@ -137,22 +137,22 @@
         <input type="hidden" name="incident_naam" value ="{{ laatste.incident_naam}}" required >
         <input type="hidden" name="locatie" value="{{laatste.locatie}}" required >
         <br>
-        <br>
+        
         <button type="submit">Verstuur</button>
     </form>
- <div class="section-title-container d-flex align-items-center justify-content-between">
+ <br><br>
     <h2>Logboek</h2>
- </div><br>
+ 
     <table border="1" width="100%">
         <tr align="left">
-            <th>Nr</th>
+           
             <th>Tijd</th>
             <th>Team</th>
             <th>Bericht</th>
         </tr>
         {% for log in form133next%}
             <tr>
-                <td>{{ log.incident_nr }}</td>
+                
                 <td>{{ log.tijd }}</td>
                 <td>{{ log.team }}</td>
                 <td>{{ log.bericht }}</td>
@@ -160,7 +160,7 @@
         {% endfor %}
     </table>
 </div>
-   </section><!-- /Starter Section Section -->
+   </section><!-- /Starter Se ction Section -->
 
   </main>
 
