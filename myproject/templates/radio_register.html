@@ -92,7 +92,7 @@
       <form action="" method="POST">
         {% csrf_token %}
        
-        <div class="title">Maak een nieuw logboek aan. Van Laatste incident:{{ laatste.incident_nr }} en volgende:{{ volgend_incident_nr }}
+        <div class="title">Maak een nieuw logboek aan. Laatste incident:{{ laatste.incident_nr }} en volgende:{{ volgend_incident_nr }}
           <i class="fas fa-pencil-alt"></i> 
         </div>
         <div class="info">
@@ -101,9 +101,10 @@
           <input type="text" name="locatie" placeholder="Locatie">
           <input type="hidden" name="incident_nr" value="{{ volgend_incident_nr }}">
         </div>
+        <br>
         <button type="submit" href="/">Sla op</button>
       </form>
-      <a href="logs">Start logboek</a>
+      <a href="logs">Ga naar logboek {{ laatste.incident_naam}}</a>
       </div>
 
     </section><!-- /Starter Section Section -->
