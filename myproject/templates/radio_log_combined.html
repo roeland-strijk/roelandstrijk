@@ -26,13 +26,13 @@
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
     <script>
-        function updateTijdveld() {
+        function updateTijd() {
             const nu = new Date();
-            const tijd = nu.toLocaleTimeString('nl-NL');  // bijv. 14:03:05
-            document.getElementById("tijdveld").value = tijd;
+            const tijd = nu.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });  // bijv. 14:03
+            document.getElementById("id_tijd").value = tijd;
         }
-        setInterval(updateTijdveld, 1000);
-        updateTijdveld();  // meteen starten
+        setInterval(updateTijd, 1000);
+        updateTijd();  // meteen starten
         </script>
 </head>
 <body class="index-page">
@@ -89,10 +89,9 @@
       </div><!-- End Section Title -->
       <div class="container section-title" data-aos="fade-up">
 
-    <form method="POST">
-        {% csrf_token %}
-    
-        <table >
+  
+   
+       <table >
             <tr>
                 <td>Incident Naam:</td>
                 <td> {{ laatste.incident_naam }}</td>
@@ -110,34 +109,10 @@
             </tr>
             <tr><td></td></tr>
         </table>
-
- <table style="width:100%" >
-
-  <tr>
-    <td>Tijd:</td>
-    <td align="left">Team:</td>
-    
-  </tr>
-    <tr>
-    <td><input type="text" name="tijd" id="tijdveld" readonly></td>
-    <td><input type="text" name="team" required></td>
-    
-  </tr>
-    <tr>
-    <td colspan="2">Bericht:</td>
-   
-  </tr>
-      <tr>
-    <td colspan="2"><input type="text" name="bericht"  style="width:95%" required></td>
-   
-  </tr>
-</table>
-        <input type="hidden" name="datum" value="{% now "Ymd" %}">
-        <input type="hidden" name="incident_nr" value ="{{ laatste.incident_nr}}" required >
-        <input type="hidden" name="incident_naam" value ="{{ laatste.incident_naam}}" required >
-        <input type="hidden" name="locatie" value="{{laatste.locatie}}" required >
-        <br>
-        
+  <form method="POST">
+        {% csrf_token %}
+      {{ form.as_p }}
+      
         <button type="submit">Verstuur</button>
     </form>
  <br><br>
@@ -190,12 +165,6 @@
         menu hier
           </ul>
         </div>
-
-   
-
-
-
-
       </div>
     </div>
 

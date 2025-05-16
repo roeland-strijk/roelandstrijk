@@ -14,9 +14,6 @@ class Form133NextForm(forms.ModelForm):
         model = Form133Next
         fields = ['incident_nr', 'incident_naam', 'locatie', 'datum', 'tijd', 'team', 'bericht']
         widgets = {
-            'datum': forms.HiddenInput(),
-            'tijd': forms.HiddenInput(),
-            'incident_nr': forms.HiddenInput(),
-            'incident_naam': forms.HiddenInput(),
-            'locatie': forms.HiddenInput(),
+            'datum': forms.DateInput(attrs={'type': 'date'}),
+            'tijd': forms.TimeInput(attrs={'type': 'time'}),
         }
