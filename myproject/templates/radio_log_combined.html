@@ -39,7 +39,7 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Roeland Strijk</h1>
@@ -47,7 +47,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-       menu hier
+       <!--menu hier -->
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -70,7 +70,7 @@
     
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li class="current">Radio Log</li>
           </ol>
         </nav>
@@ -89,9 +89,16 @@
       </div><!-- End Section Title -->
       <div class="container section-title" data-aos="fade-up">
 
+<<<<<<< HEAD
   
    
        <table >
+=======
+    <form method="POST">
+        {% csrf_token %}
+    <div class="table-responsive-md">
+        <table >
+>>>>>>> 2bbea6280009b5907b917c42f2e9f8eb57c155b2
             <tr>
                 <td>Incident Naam:</td>
                 <td> {{ laatste.incident_naam }}</td>
@@ -109,31 +116,64 @@
             </tr>
             <tr><td></td></tr>
         </table>
+<<<<<<< HEAD
   <form method="POST">
         {% csrf_token %}
       {{ form.as_p }}
       
+=======
+      </div>
+<div class="table-responsive-md">
+ <table class="table" >
+
+  <tr>
+    <td>Tijd:</td>
+    <td align="left">Team:</td>
+    
+  </tr>
+    <tr>
+    <td><input type="text" name="tijd" id="tijdveld" readonly></td>
+    <td><input type="text" name="team" required></td>
+    
+  </tr>
+    <tr>
+    <td colspan="2">Bericht:</td>
+   
+  </tr>
+      <tr>
+    <td colspan="2"><input type="text" name="bericht"  style="width:95%" required></td>
+   
+  </tr>
+</table>
+        <input type="hidden" name="datum" value="{% now "Ymd" %}">
+        <input type="hidden" name="incident_nr" value ="{{ laatste.incident_nr}}" required >
+        <input type="hidden" name="incident_naam" value ="{{ laatste.incident_naam}}" required >
+        <input type="hidden" name="locatie" value="{{laatste.locatie}}" required >
+        <br>
+        
+>>>>>>> 2bbea6280009b5907b917c42f2e9f8eb57c155b2
         <button type="submit">Verstuur</button>
     </form>
  <br><br>
     <h2>Logboek</h2>
- 
-    <table border="1" width="100%">
+ <div class="table-responsive-md">
+    <table class="table table-striped table-bordered">
         <tr align="left">
            
-            <th>Tijd</th>
-            <th>Team</th>
-            <th>Bericht</th>
+            <th scope="col">Tijd</th>
+            <th scope="col">Team</th>
+            <th scope="col">Bericht</th>
         </tr>
         {% for log in form133next%}
             <tr>
                 
-                <td>{{ log.tijd }}</td>
+                <td ><a href="" title="{{log.datum}}">{{ log.tijd }}</a></td>
                 <td>{{ log.team }}</td>
                 <td>{{ log.bericht }}</td>
             </tr>
         {% endfor %}
     </table>
+  </div>
 </div>
    </section><!-- /Starter Se ction Section -->
 
