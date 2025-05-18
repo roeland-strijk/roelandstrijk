@@ -23,7 +23,7 @@ def radio_log(request):
     }
     return render(request, 'radio_register.html', context)
 
-
+# dit is het formulier voor de radio log pagina.
 def radio_log_combined(request):
     if request.method == "POST":
         form = Form133NextForm(request.POST)
