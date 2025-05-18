@@ -117,7 +117,7 @@
         </tr>
         {% for log in form133next%}
         <tr>
-            <td>{{ log.datum }}</td>
+            <td>{{ log.datum|date:"d-m-Y"}}</td>
             <td>{{ log.tijd|date:"H:i:s"}}</td>
             <td>{{ log.team }}</td>
             <td>{{ log.bericht }}</td>
