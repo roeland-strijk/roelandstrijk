@@ -91,18 +91,19 @@
       <div class="container section-title" data-aos="fade-up">
       <form action="" method="POST">
         {% csrf_token %}
-       
+         {{ form.as_table }}
         <div class="title">Maak een nieuw logboek aan met de datum van {% now "d-m-Y" %}. Laatste incident:{{ laatste.incident_nr }} en volgende:{{ volgend_incident_nr }}
           <i class="fas fa-pencil-alt"></i> 
         </div>
-        <div class="info">
+       <!-- <div class="info">
           <input type="text" name="incident_naam" placeholder="Incident naam">
           <input type="hidden" name="datum" value="{% now "Ymd" %}">
           <input type="text" name="locatie" placeholder="Locatie">
           <input type="hidden" name="incident_nr" value="{{ volgend_incident_nr }}">
         </div>
-        <br>
+        <br>-->
         <button type="submit" href="/">Sla op</button>
+      
       </form>
       <a href="logs">Ga naar logboek {{ laatste.incident_naam}}</a>
       </div>

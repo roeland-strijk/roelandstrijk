@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,15 +26,22 @@
 
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
-    <script>
-        function updateTijdveld() {
-            const nu = new Date();
-            const tijd = nu.toLocaleTimeString('nl-NL');  // bijv. 14:03:05
-            document.getElementById("tijdveld").value = tijd;
+<script>
+    function updateTime() {
+        const now = new Date();
+        const timeField = document.getElementById("id_tijd");
+        if (timeField) {
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            timeField.value = `${hours}:${minutes}`;  // Zonder seconden!
         }
-        setInterval(updateTijdveld, 1000);
-        updateTijdveld();  // meteen starten
-        </script>
+    }
+
+    window.onload = function () {
+        updateTime();               // Meteen invullen
+        setInterval(updateTime, 1000); // Optioneel bijwerken
+    };
+</script>
 </head>
 <body class="index-page">
   <header id="header" class="header d-flex align-items-center sticky-top">
@@ -88,76 +96,34 @@
         </div>
       </div><!-- End Section Title -->
       <div class="container section-title" data-aos="fade-up">
+<!-- hier komt de form -->
+  <form method="post">
+  {% csrf_token %}
+   {{ form.as_table }}
 
-    <form method="POST">
-        {% csrf_token %}
-    <div class="table-responsive-md">
-        <table >
-            <tr>
-                <td>Incident Naam:</td>
-                <td> {{ laatste.incident_naam }}</td>
-            </tr>
-            <tr>
-                <td>Nr:</td>
-                <td>{{ laatste.incident_nr }}</td>
-            </tr>
-            <tr>
-                <td>Datum:</td>
-                <td>{% now "d-m-Y" %}</td>
-            </tr><tr>
-            <td>Locatie:</td>
-            <td>{{laatste.locatie}}</td>
-            </tr>
-            <tr><td></td></tr>
-        </table>
-      </div>
-<div class="table-responsive-md">
- <table class="table" >
-
-  <tr>
-    <td>Tijd:</td>
-    <td align="left">Team:</td>
-    
-  </tr>
-    <tr>
-    <td><input type="text" name="tijd" id="tijdveld" readonly></td>
-    <td><input type="text" name="team" required></td>
-    
-  </tr>
-    <tr>
-    <td colspan="2">Bericht:</td>
-   
-  </tr>
-      <tr>
-    <td colspan="2"><input type="text" name="bericht"  style="width:95%" required></td>
-   
-  </tr>
-</table>
-        <input type="hidden" name="datum" value="{% now "Ymd" %}">
-        <input type="hidden" name="incident_nr" value ="{{ laatste.incident_nr}}" required >
-        <input type="hidden" name="incident_naam" value ="{{ laatste.incident_naam}}" required >
-        <input type="hidden" name="locatie" value="{{laatste.locatie}}" required >
-        <br>
-        
-        <button type="submit">Verstuur</button>
-    </form>
- <br><br>
-    <h2>Logboek</h2>
+  <button type="submit" class="btn btn-primary">Opslaan</button>
+</form>
  <div class="table-responsive-md">
-    <table class="table table-striped table-bordered">
-        <tr align="left">
-           
-            <th scope="col">Tijd</th>
-            <th scope="col">Team</th>
-            <th scope="col">Bericht</th>
+
+  <!-- hier komt de uitkomst-->
+    <h3>Log voor incident #{{ laatste.incident_nr }} {{ laatste.incident_naam }}</h3>
+    <table border="1" class="table table-striped table-bordered">
+
+        <tr>
+            <th>Datum</th>
+            <th>Tijd</th>
+            <th>Team</th>
+            <th>Bericht</th>
         </tr>
         {% for log in form133next%}
-            <tr>
-                
-                <td ><a href="" title="{{log.datum}}">{{ log.tijd }}</a></td>
-                <td>{{ log.team }}</td>
-                <td>{{ log.bericht }}</td>
-            </tr>
+        <tr>
+            <td>{{ log.datum }}</td>
+            <td>{{ log.tijd|date:"H:i:s"}}</td>
+            <td>{{ log.team }}</td>
+            <td>{{ log.bericht }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">Geen logs gevonden.</td></tr>
         {% endfor %}
     </table>
   </div>

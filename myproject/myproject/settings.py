@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'posts',
     'sarforms',
     'register',
+    'crispy_forms',
+    'crispy_bootstrap5',  # alleen als je Bootstrap 5 gebruikt
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -107,7 +111,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Amsterdam'  # of je lokale tijdzone
+
 
 USE_I18N = True
 
