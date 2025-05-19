@@ -1,0 +1,11 @@
+{% block content %}
+  <h2>Verwijder logregel</h2>
+  <p>Weet je zeker dat je deze log wilt verwijderen?</p>
+  <p><strong>{{ object }}</strong></p>
+  
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Ja, verwijderen</button>
+    <a href="{% url 'logs' %}">Annuleren</a>
+  </form>
+{% endblock %}

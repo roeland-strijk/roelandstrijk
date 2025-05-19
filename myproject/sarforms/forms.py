@@ -40,3 +40,5 @@ class Form133NextForm(forms.ModelForm):
             self.fields['locatie'].initial = laatste.locatie
         except Form133Next.DoesNotExist:
             pass
+
+    

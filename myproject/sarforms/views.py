@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
 from django.db.models import Max
 from .models import Form133, Form133Next
 from .forms import Form133Form, Form133NextForm
+from django.shortcuts import get_object_or_404, redirect, render
 
 def radio_log(request):
     laatste = Form133.objects.last()
@@ -46,4 +46,29 @@ def radio_log_combined(request):
 
     return render(request, 'radio_log_combined.html', context)
 
+# update view
+def edit_form133next(request, pk):
+    instance = get_object_or_404(Form133Next, pk=pk)
+    
+    if request.method == "POST":
+        form = Form133NextForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('logs')  # Pas aan indien je een andere viewnaam gebruikt
+    else:
+        form = Form133NextForm(instance=instance)
+    
+    context = {'form': form, 'object': instance}
+    return render(request, 'edit_form133next.html', context)
 
+
+#delete view
+def delete_form133next(request, pk):
+    instance = get_object_or_404(Form133Next, pk=pk)
+    
+    if request.method == "POST":
+        instance.delete()
+        return redirect('logs')  # Pas aan indien je een andere viewnaam gebruikt
+    
+    context = {'object': instance}
+    return render(request, 'delete_form133next.html', context)
