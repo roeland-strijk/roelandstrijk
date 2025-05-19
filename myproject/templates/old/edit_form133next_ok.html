@@ -1,0 +1,10 @@
+{% load static %}
+{% block content %}
+  <h2>Wijzig Form133Next</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Opslaan</button>
+   <a href="{% url 'logs' %}">Annuleren</a>
+  </form>
+{% endblock %}
