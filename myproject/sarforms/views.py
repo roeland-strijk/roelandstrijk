@@ -65,10 +65,6 @@ def edit_form133next(request, pk):
 #delete view
 def delete_form133next(request, pk):
     instance = get_object_or_404(Form133Next, pk=pk)
-    
     if request.method == "POST":
         instance.delete()
-        return redirect('logs')  # Pas aan indien je een andere viewnaam gebruikt
-    
-    context = {'object': instance}
-    return render(request, 'delete_form133next.html', context)
+    return redirect('logs')

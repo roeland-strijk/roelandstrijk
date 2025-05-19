@@ -41,6 +41,10 @@
         updateTime();               // Meteen invullen
         setInterval(updateTime, 1000); // Optioneel bijwerken
     };
+
+      function confirmDelete() {
+    return confirm("Weet je zeker dat je dit item wilt verwijderen?");
+  }
 </script>
 </head>
 <body class="index-page">
@@ -125,7 +129,10 @@
             <td>{{ log.team }}</td>
             <td>{{ log.bericht }}</td>
             <td><a href="{% url 'edit_form133next' log.pk %}">✏️ Bewerken</a></td>
-            <td><a href="{% url 'delete_form133next' log.pk %}">❌ Verwijderen</a></td>
+            <td><form action="{% url 'delete_form133next' log.pk %}" method="post" style="display:inline;" onsubmit="return confirmDelete();">
+      {% csrf_token %}
+      <button type="submit" style="background:none; border:none; color:red; cursor:pointer;">🗑️</button>
+    </form></td>
       
         </tr>
         {% empty %}
