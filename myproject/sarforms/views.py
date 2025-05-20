@@ -2,7 +2,9 @@ from django.db.models import Max
 from .models import Form133, Form133Next
 from .forms import Form133Form, Form133NextForm
 from django.shortcuts import get_object_or_404, redirect, render
+from .models import Incident
 
+# radio register view   
 def radio_log(request):
     laatste = Form133.objects.last()
     volgend_incident_nr = (Form133.objects.aggregate(Max('incident_nr'))['incident_nr__max'] or 0) + 1
@@ -11,7 +13,7 @@ def radio_log(request):
         form = Form133Form(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('logs')  # Pas aan naar jouw URL naam
+            return redirect('logs')  # redirect to the logs page after saving
 
     else:
         form = Form133Form(initial={'incident_nr': volgend_incident_nr})
@@ -21,9 +23,9 @@ def radio_log(request):
         'laatste': laatste,
         'volgend_incident_nr': volgend_incident_nr,
     }
-    return render(request, 'radio_register.html', context)
+    return render(request, 'radio_register.html', context) #render the form
 
-# dit is het formulier voor de radio log pagina.
+# radio log view
 def radio_log_combined(request):
     if request.method == "POST":
         form = Form133NextForm(request.POST)
@@ -68,3 +70,22 @@ def delete_form133next(request, pk):
     if request.method == "POST":
         instance.delete()
     return redirect('logs')
+
+
+
+def incidenten_lijst(request):
+    incident_nr = request.GET.get('incident_nr')
+
+    if incident_nr:
+        data = Form133Next.objects.filter(incident_nr=incident_nr).order_by('-datum', '-tijd')
+    else:
+        data = Form133Next.objects.none()
+
+    # Unieke incident_nrs voor de dropdown
+    alle_incident_nrs = Form133Next.objects.values_list('incident_nr', flat=True).distinct().order_by('-incident_nr')
+
+    return render(request, 'incidenten_lijst.html', {
+        'incidenten': data,
+        'huidig_incident_nr': incident_nr,
+        'alle_incident_nrs': alle_incident_nrs,
+    })

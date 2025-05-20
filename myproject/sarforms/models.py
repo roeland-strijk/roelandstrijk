@@ -20,3 +20,12 @@ class Form133Next(models.Model):
 
     def __str__(self):
         return f"{self.incident_nr} - {self.tijd} - {self.team} - {self.bericht}"
+
+from django.db import models
+
+class Incident(models.Model):
+    titel = models.CharField(max_length=100)
+    datum = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.titel
