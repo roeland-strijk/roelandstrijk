@@ -122,7 +122,7 @@
 
         {% for item in incidenten %}
         <tr>
-            <td>{{ item.datum|date:"d-m-Y"}} </td><td>{{ item.tijd}}</td><td>{{ item.team }}</td><td> {{ item.bericht }}</td>
+            <td>{{ item.datum|date:"d-m-Y"}} </td><td>{{ item.tijd|date:"H:i:s" }}</td><td>{{ item.team }}</td><td> {{ item.bericht }}</td>
         </tr>
         {% endfor %}
     </table>
