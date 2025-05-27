@@ -41,9 +41,13 @@
       </a>
 
         <nav id="navmenu" class="navmenu">
+              
+    <hr>
+   
         <ul>
           <li><a href="#" class="active">Home</a></li>
           <li><a href="/radiolog">RadioLog</a></li>
+          <li><a href="/kaart">Kaart</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -52,6 +56,9 @@
         <a href="https://x.com/RoelandStrijk" class="twitter" target="_blank"><i class="bi bi-twitter-x"></i></a>
         <a href="https://www.facebook.com/roeland.strijk.3/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
         <a href="https://www.linkedin.com/in/roeland-strijk-60bb3847/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+       <br> {% if user.is_authenticated %}
+        Ingelogd als {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
       </div>
 
     </div>

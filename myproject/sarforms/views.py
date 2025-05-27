@@ -3,7 +3,9 @@ from .models import Form133, Form133Next
 from .forms import Form133Form, Form133NextForm
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Incident
+from django.contrib.auth.decorators import login_required
 
+@login_required
 # radio register view   
 def radio_log(request):
     laatste = Form133.objects.last()
@@ -25,6 +27,7 @@ def radio_log(request):
     }
     return render(request, 'radio_register.html', context) #render the form
 
+@login_required
 # radio log view
 def radio_log_combined(request):
     if request.method == "POST":
@@ -48,6 +51,7 @@ def radio_log_combined(request):
 
     return render(request, 'radio_log_combined.html', context)
 
+@login_required
 # update view
 def edit_form133next(request, pk):
     instance = get_object_or_404(Form133Next, pk=pk)
@@ -63,7 +67,7 @@ def edit_form133next(request, pk):
     context = {'form': form, 'object': instance}
     return render(request, 'edit_form133next.html', context)
 
-
+@login_required
 #delete view
 def delete_form133next(request, pk):
     instance = get_object_or_404(Form133Next, pk=pk)
@@ -72,7 +76,7 @@ def delete_form133next(request, pk):
     return redirect('logs')
 
 
-
+@login_required
 def incidenten_lijst(request):
     incident_nr = request.GET.get('incident_nr')
 

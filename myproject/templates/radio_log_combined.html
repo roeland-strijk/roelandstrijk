@@ -69,6 +69,9 @@
         <a href="https://www.facebook.com/roeland.strijk.3/" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="https://www.linkedin.com/in/roeland-strijk-60bb3847/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      <br> {% if user.is_authenticated %}
+        Ingelogd als {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
       </div>
 
     </div>

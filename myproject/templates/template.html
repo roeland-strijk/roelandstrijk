@@ -86,15 +86,21 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <div class="section-title-container d-flex align-items-center justify-content-between">
-          <h2>Radio Log</h2>
+          <h2>Login</h2>
         </div>
       </div>
       <!-- End Section Title -->
       <div class="container section-title" data-aos="fade-up">
 
 
-
-<!-- inhoud hier-->
+    {% block content %}
+<h2>Inloggen</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+{% endblock %
 
 
 

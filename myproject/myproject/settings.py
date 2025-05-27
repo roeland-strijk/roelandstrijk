@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'register',
     'crispy_forms',
     'crispy_bootstrap5',  # alleen als je Bootstrap 5 gebruikt
+    'maps',  # Voeg de maps app toe
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -128,6 +129,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = 'logs'   # Naar waar je na login wilt
+LOGOUT_REDIRECT_URL = '/' # Optioneel als je LogoutView gebruikt
 
 #MEDIA_URL = 'media/'
 MEDIA_ROOT ='static/assets/img/blog'
