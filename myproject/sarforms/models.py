@@ -7,7 +7,7 @@ class Form133(models.Model):
     locatie = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.incident_naam} - {self.datum}"
+        return f"{self.datum} - {self.incident_naam}"
 
 class Form133Next(models.Model):
     incident_nr = models.IntegerField(null=True, blank=True)
